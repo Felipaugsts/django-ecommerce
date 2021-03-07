@@ -1,0 +1,23 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    {% for product in products %}
+
+
+    <div class="col-md-4 mt-4 mt-sm-0 card-container rounded-3">
+        <div class="card text-center product p-4 pt-5 border-0 h-100 rounded-0">
+            <img class="img-fluid d-block mx-auto rounded-3" src="{{product.imageURL}}" alt="Command Hats Gear Image">
+            <div class="card-body p-4 py-0 h-xs-440p">
+                <h5 class="card-title font-weight-semi-bold mb-3 w-xl-220p mx-auto">{{product.name}}</h5>
+                <p class="price">${{product.price|floatformat:2}}</p>
+            </div>
+
+            <button data-product="{{product.id}}" data-action="add"
+                class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
